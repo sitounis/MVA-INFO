@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.vfesweb.deploymentName }}
+  labels:
+    chart: "{{ .Chart.Name }}"
+spec:
+  replicas: {{ .Values.vfesweb.replicaCount }}
+  strategy:
+    type: {{ .Values.vfesweb.deploymentStrategy.type }}
+  selector:
+    matchLabels:
+      app: {{ .Values.vfesweb.deploymentName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.vfesweb.deploymentName }}
+{{- if .Values.vfesweb.podAnnotations }}
+      annotations:
+{{ toYaml .Values.vfesweb.podAnnotations | indent 8 }}
+{{- end }}
+    spec:
+      containers:
+      - name: {{ .Values.vfesweb.deploymentName }}
+        image: "{{ .Values.images.dockerRegistry }}/{{ .Values.images.dockerOrg }}/{{ .Values.vfesweb.imageRepository }}:{{ .Values.images.tag }}"
+        imagePullPolicy: {{ .Values.images.pullPolicy }}
+        env:
+{{- range $pkey, $pval := .Values.vfesweb.env }}
+        - name: {{ $pkey }}
+          value: {{ quote $pval }}
+{{- end }}
+{{- if (or .Values.vfesweb.deploymentEnvFrom.configMapRefs .Values.vfesweb.deploymentEnvFrom.secretRefs) }}
+        envFrom:
+{{- range $pkey, $pval := .Values.vfesweb.deploymentEnvFrom.configMapRefs }}
+        - configMapRef:
+            name: {{ $pkey }}
+{{- /* Add any additional attributes (only the "optional" attribute is supported at the time of writing this template */ -}}
+            {{- if $pval }}            
+{{ toYaml $pval | indent 12 }}
+            {{- end }}
+{{- end }}
+{{- range $pkey, $pval := .Values.vfesweb.deploymentEnvFrom.secretRefs }}
+        - secretRef:
+            name: {{ $pkey }}
+{{- /* Add any additional attributes (only the "optional" attribute is supported at the time of writing this template */ -}}
+            {{- if $pval }}            
+{{ toYaml $pval | indent 12 }}
+            {{- end }}
+{{- end }}
+{{- end }}
+        ports:
+        - containerPort: {{ .Values.vfesweb.service.internalPort }}
+{{- if .Values.vfesweb.livenessProbe }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.vfesweb.livenessProbe.probePath }}
+            port: {{ .Values.vfesweb.service.internalPort }}
+          initialDelaySeconds: {{ .Values.vfesweb.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.vfesweb.livenessProbe.periodSeconds }}
+          successThreshold: {{ .Values.vfesweb.livenessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.vfesweb.livenessProbe.timeoutSeconds }}
+{{- end }}
+{{- if .Values.vfesweb.readinessProbe }}
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.vfesweb.readinessProbe.probePath }}
+            port: {{ .Values.vfesweb.service.internalPort }}
+          periodSeconds: {{ .Values.vfesweb.readinessProbe.periodSeconds }}
+          successThreshold: {{ .Values.vfesweb.readinessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.vfesweb.readinessProbe.timeoutSeconds }}
+{{- end }}
+{{- if .Values.vfesweb.resources }}
+        resources:
+{{ toYaml .Values.vfesweb.resources | indent 12 }}
+{{- end }}
+{{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{- range $pkey := .Values.imagePullSecrets }}
+      - name: {{ $pkey }}
+{{- end }}
+{{- end }}

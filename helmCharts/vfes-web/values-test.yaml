@@ -1,0 +1,107 @@
+#Common values for all apps
+ingressDomain: test.domain
+
+images:
+  dockerRegistry: REPLACE_ME_DOCKER_REGISTRY
+  dockerOrg: REPLACE_ME_DOCKER_ORG
+  tag: REPLACE_ME_IMAGE_TAG
+  pullPolicy: IfNotPresent
+
+#Values per app
+vfesweb:
+  imageRepository: test-image
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+  replicaCount: 1
+  
+  # podAnnotations:
+  
+  env:
+    JAVA_OPTS: -Xmx410m -Xms256m
+  
+  deploymentEnvFrom:
+    configMapRefs:
+      testMapRef1:
+    secretRefs:
+      testSecretRef1:
+        optional: true
+
+  deploymentName: test-deployment-vfes-web
+  
+  livenessProbe:
+    probePath: /actuator/health
+    initialDelaySeconds: 120
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  readinessProbe:
+    probePath: /actuator/health
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  
+  terminationGracePeriodSeconds: 10
+  
+  service:
+    type: NodePort
+    externalPort: 80
+    internalPort: 8080
+    annotations:
+  
+  ingressHostName:  test-ingress-vfesweb
+
+server:
+  imageRepository: test-image
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+  replicaCount: 1
+  
+  # podAnnotations:
+  
+  env:
+    JAVA_OPTS: -Xmx410m -Xms256m
+  
+  deploymentEnvFrom:
+    configMapRefs:
+      testMapRef1:
+    secretRefs:
+      testSecretRef1:
+        optional: true
+
+  deploymentName: test-deployment-server
+  
+  livenessProbe:
+    probePath: /actuator/health
+    initialDelaySeconds: 120
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  readinessProbe:
+    probePath: /actuator/health
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  
+  terminationGracePeriodSeconds: 10
+  
+  service:
+    type: NodePort
+    externalPort: 80
+    internalPort: 8080
+    annotations:
+  
+  ingressHostName:  test-ingress-server

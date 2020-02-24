@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.vfesweb.deploymentName }}
+  labels:
+    chart: {{ .Chart.Name }}
+{{- if .Values.vfesweb.service.annotations }}
+  annotations:
+{{ toYaml .Values.vfesweb.service.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.vfesweb.service.type }}
+  ports:
+  - port: {{ .Values.vfesweb.service.externalPort }}
+    targetPort: {{ .Values.vfesweb.service.internalPort }}
+    protocol: TCP
+    name: http
+  selector:
+    app: {{ .Values.vfesweb.deploymentName }}

@@ -1,0 +1,21 @@
+#Values for specific environment
+ingressDomain: app-dev.digitalretail.vodafone.com
+
+pwa:
+  deploymentStrategy:
+    type: Recreate
+
+  # env: {}
+  # deploymentEnvFrom: {}
+  ingressHostName: gr-web
+
+server:
+  deploymentStrategy:
+    type: Recreate
+  env:
+    CLIENT_ID: "83690704-40bf-4b01-a176-aa6efa486429"
+    TENANT_ID: "4e3add70-83da-4ecd-aa1f-9941c0859f83"
+    CLIENT_SECRET: "clp_WeAKMb3N3x_]2iCo:oJazfBKmVy6"
+    REDIRECT_URI: "https://gr-web.app-dev.digitalretail.vodafone.com/oauthcode"
+    SCREENLOCKTIMEOUT: "60"
+    MONGODB_URI: "mongodb://devAdmin01:devAdmin01@172.33.3.101:27017/dev"

@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  name: {{ .Values.vfesweb.deploymentName }}
+spec:
+  rules:
+  - host: {{ .Values.vfesweb.ingressHostName }}.{{ .Values.ingressDomain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.vfesweb.deploymentName }}
+          servicePort: {{ .Values.vfesweb.service.externalPort }}

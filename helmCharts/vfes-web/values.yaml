@@ -1,0 +1,74 @@
+#Common values for all apps
+#ingressDomain: REPLACE_ME_INGRESS_DOMAIN
+
+images:
+  dockerRegistry: docker-r10.javelin.vodafone.com
+  dockerOrg: r10_core_app
+  tag: 10
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - private-docker-registry
+
+#Values per app
+vfesweb:
+  imageRepository: vfesweb
+
+  resources:
+    limits:
+      cpu: 500m
+      memory: 256Mi
+    requests:
+      cpu: 200m
+      memory: 128Mi
+
+  replicaCount: 1
+
+  deploymentStrategy:
+    maxSurge: 25%
+    maxUnavailable: 25%
+    type: RollingUpdate
+
+  # podAnnotations:
+
+  # define environment variables here as a map of key: value
+  env: {}
+  # env:
+  # JAVA_OPTS: -Xmx410m -Xms256m
+
+  # Define configMap/secret env variable references.
+  # Each configMapRef/secretRef is created with the name of the corresponding key.
+  # Any additional attributes of the configMapRef/secretRef are inserted in the value of each key
+  # (only the "optional" attribute is supported at the time of writing this template)
+  deploymentEnvFrom: {}
+  # deploymentEnvFrom:
+  # configMapRefs:
+  # global-ldap-config:
+  # secretRefs:
+  # ldap-secrets:
+  # optional: true
+
+  deploymentName: vfesweb
+
+  # livenessProbe:
+  # probePath: /actuator/health
+  # initialDelaySeconds: 120
+  # periodSeconds: 10
+  # successThreshold: 1
+  # timeoutSeconds: 1
+  # readinessProbe:
+  # probePath: /actuator/health
+  # periodSeconds: 10
+  # successThreshold: 1
+  # timeoutSeconds: 1
+
+  terminationGracePeriodSeconds: 10
+
+  service:
+    type: ClusterIP
+    externalPort: 80
+    internalPort: 80
+    annotations:
+
+  #Prefix of the ingress host url (part before the first ".")
+  #ingressHostName: vfes-web-test
