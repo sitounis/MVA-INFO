@@ -20,7 +20,7 @@ def pipelineConfig=[
   // B. FIXED VALUES -------------------------------------------------------------------------
   
   //Repo name must be lowercase
-  helmChartDir: 'helmCharts/vfes-web',
+  helmChartDir: 'jenkinsRepo/helmCharts/vfes-web',
   //Which values.yaml to use to lint the Helm chart. The path is relative to the Helm chart's dir
   helmChartTestFileName: 'values-test.yaml',
   
@@ -56,7 +56,7 @@ _auth=${env.NPM_AUTH}
     sh "npm i"
     sh "export NG_CLI_ANALYTICS=ci"
     sh "npm install -g @angular/cli"
-    sh "ng build  --env=uat  --aot --sourcemap=false"
+    sh "npm run uat"
     sh "docker build -t ${projectAttributes.dockerImage} ."
   } finally {
     //Do some cleanup
@@ -134,7 +134,7 @@ pipeline {
     stage('Checkout clean workspace') {
      steps {
         cleanWs()
-        //checkout scm
+        checkout scm
       }
     }
     
