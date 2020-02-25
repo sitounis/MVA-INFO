@@ -124,9 +124,9 @@ pipeline {
   }
   
   parameters {
-    'REPO',
-    'BRANCH'
-  }
+    string defaultValue: 'Athena/feature/MVARR-4', description: '', name: 'BRANCH', trim: false
+    choice choices: ['https://github.vodafone.com/VFES-MyVodafone/VFES-Web'], description: '', name: 'REPO'
+}
   //environment {}
   
   stages {
