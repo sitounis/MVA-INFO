@@ -20,7 +20,7 @@ def pipelineConfig=[
   // B. FIXED VALUES -------------------------------------------------------------------------
   
   //Repo name must be lowercase
-  helmChartDir: '../helmCharts/vfes-web',
+  helmChartDir: 'helmCharts/vfes-web',
   //Which values.yaml to use to lint the Helm chart. The path is relative to the Helm chart's dir
   helmChartTestFileName: 'values-test.yaml',
   
