@@ -21,6 +21,7 @@ def pipelineConfig=[
   
   //Repo name must be lowercase
   helmChartDir: 'jenkinsRepo/helmCharts/vfes-web',
+  buildDir: 'checkoutDir'
   //Which values.yaml to use to lint the Helm chart. The path is relative to the Helm chart's dir
   helmChartTestFileName: 'values-test.yaml',
   
@@ -173,8 +174,10 @@ pipeline {
     
     stage('Build vfes-Web') {
       steps {
-        nodejs(nodeJSInstallationName: 'nodejs') {
-           _buildDockerProject('vfes-Web', pipelineConfig)
+        dir(buildDir) {
+          nodejs(nodeJSInstallationName: 'nodejs') {
+             _buildDockerProject('vfes-Web', pipelineConfig)
+          }
         }
       }
     }
