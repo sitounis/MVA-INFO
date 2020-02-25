@@ -146,7 +146,7 @@ pipeline {
       $class: 'GitSCM', 
       branches: [[name: params.BRANCH]], 
       doGenerateSubmoduleConfigurations: false, 
-      extensions: [], 
+      extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'checkoutDir']], 
       submoduleCfg: [], 
       userRemoteConfigs: [[credentialsId: 'VFES Github API token', url: params.REPO]]])
       }
