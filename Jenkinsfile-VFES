@@ -172,20 +172,20 @@ pipeline {
       }
     }
     
-    stage('Build vfes-Web') {
+    stage('Build VFES-Web') {
       steps {
         dir(pipelineConfig.buildDir) {
           nodejs(nodeJSInstallationName: 'nodejs') {
-             _buildDockerProject('vfes-Web', pipelineConfig)
+             _buildDockerProject('vfesweb', pipelineConfig)
           }
         }
       }
     }
     
     //Publish artifacts
-    stage('Publish vfes-Web') {
+    stage('Publish VFES-Web') {
       steps {
-        //_publishDockerProjectArtifacts('vfes-Web', pipelineConfig)
+        //_publishDockerProjectArtifacts('vfesweb', pipelineConfig)
         echo 'skip for now'
       }
     }
