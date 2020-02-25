@@ -174,7 +174,7 @@ pipeline {
     
     stage('Build vfes-Web') {
       steps {
-        dir(buildDir) {
+        dir(pipelineConfig.buildDir) {
           nodejs(nodeJSInstallationName: 'nodejs') {
              _buildDockerProject('vfes-Web', pipelineConfig)
           }
