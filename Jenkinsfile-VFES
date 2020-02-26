@@ -173,6 +173,7 @@ pipeline {
     
     stage('Build VFES-Web') {
       steps {
+        sh "cp -r jenkinsRepo/nginx jenkinsRepo/Dockerfile jenkinsRepo/Dockerfile checkoutDir"
         dir(pipelineConfig.buildDir) {
           nodejs(nodeJSInstallationName: 'nodejs') {
              _buildDockerProject('vfesweb', pipelineConfig)
