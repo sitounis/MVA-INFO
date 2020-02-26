@@ -5,8 +5,7 @@ def pipelineConfig=[
   // A. ENV-SPECIFIC VALUES (MAY DIFFER ON OTHER JENKINS/KUBERNETES/NEXUS) -------------------
   
   branchesKubernetesNamespaces: [
-    //'demo': 'r10-app-dev'
-    //,'release-.+: 'r10-app-test'
+    '.+': 'r10-app-test'
   ],
   npmRegistryUrl: 'https://nexus.javelin.vodafone.com/repository/npm-app-framework-group/',
   npmPrivateRegistryUrl: 'https://nexus.javelin.vodafone.com/repository/npm-app-framework-private/',
@@ -59,7 +58,7 @@ _auth=${env.NPM_AUTH}
     sh "npm install -g @angular/cli"
     sh "rm -r node_modules/@angular/cli/node_modules/webpack"
     sh "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --env=uat --aot --sourcemap=false"
-    sh "docker build -t ${projectAttributes.dockerImage} ${projectName}"
+    sh "docker build -t ${projectAttributes.dockerImage} ."
   } finally {
     //Do some cleanup
     sh "rm -f .npmrc"
@@ -185,19 +184,15 @@ pipeline {
     //Publish artifacts
     stage('Publish VFES-Web') {
       steps {
-        //_publishDockerProjectArtifacts('vfesweb', pipelineConfig)
-        echo 'skip for now'
+        _publishDockerProjectArtifacts('vfesweb', pipelineConfig)
       }
     }
     
     //Deploy Helm chart - only when a namespace is defined for the current branch
     stage('Deploy Kubernetes') {
       when {
-          expression { return false }
+        expression { return _getKubernetesNamespace(pipelineConfig) != null }
       }
-      //when {
-        //expression { return _getKubernetesNamespace(pipelineConfig) != null }
-      //}
       steps {
         //Install/update the Helm chart
         echo "Deploying Helm chart at '${pipelineConfig.helmChartDir}'..."
