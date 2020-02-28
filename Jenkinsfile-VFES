@@ -103,7 +103,7 @@ def _getKubernetesNamespace(def pipelineConfig) {
   k8sNamespace=null
   
   pipelineConfig.branchesKubernetesNamespaces.any { branchPattern, branchNamespace ->
-    if (env.BRANCH_NAME ==~ /${branchPattern}/) {
+    if (params.BRANCH ==~ /${branchPattern}/) {
       k8sNamespace=branchNamespace
     }
   }
@@ -185,16 +185,16 @@ pipeline {
     //Publish artifacts
     stage('Publish VFES-Web') {
       steps {
-       //_publishDockerProjectArtifacts('vfesweb', pipelineConfig)
-       echo 'skip for now'
+        dir(pipelineConfig.buildDir) {
+           _publishDockerProjectArtifacts('vfesweb', pipelineConfig)
+        }
       }
     }
     
     //Deploy Helm chart - only when a namespace is defined for the current branch
     stage('Deploy Kubernetes') {
       when {
-        expression { return false }
-        //expression { return _getKubernetesNamespace(pipelineConfig) != null }
+        expression { return _getKubernetesNamespace(pipelineConfig) != null }
       }
       steps {
         //Install/update the Helm chart
