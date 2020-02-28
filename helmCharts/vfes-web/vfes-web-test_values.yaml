@@ -7,5 +7,4 @@ vfesweb:
 
   # env: {}
   # deploymentEnvFrom: {}
-  ingressHostName: mva-es-test
-  
+  ingressHostName: mva-es-demo

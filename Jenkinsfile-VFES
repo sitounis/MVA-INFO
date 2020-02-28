@@ -173,7 +173,7 @@ pipeline {
     
     stage('Build VFES-Web') {
       steps {
-        sh "cp -r jenkinsRepo/nginx jenkinsRepo/Dockerfile jenkinsRepo/Dockerfile checkoutDir"
+        sh "cp -r jenkinsRepo/nginx jenkinsRepo/Dockerfile jenkinsRepo/Dockerfile ${pipelineConfig.buildDir}"
         dir(pipelineConfig.buildDir) {
           nodejs(nodeJSInstallationName: 'nodejs') {
              _buildDockerProject('vfesweb', pipelineConfig)
@@ -185,14 +185,16 @@ pipeline {
     //Publish artifacts
     stage('Publish VFES-Web') {
       steps {
-        _publishDockerProjectArtifacts('vfesweb', pipelineConfig)
+       //_publishDockerProjectArtifacts('vfesweb', pipelineConfig)
+       echo 'skip for now'
       }
     }
     
     //Deploy Helm chart - only when a namespace is defined for the current branch
     stage('Deploy Kubernetes') {
       when {
-        expression { return _getKubernetesNamespace(pipelineConfig) != null }
+        expression { return false }
+        //expression { return _getKubernetesNamespace(pipelineConfig) != null }
       }
       steps {
         //Install/update the Helm chart
@@ -203,7 +205,7 @@ pipeline {
           assert k8sNamespace!=null
           
           withCredentials([file(credentialsId: pipelineConfig.kubernetesCredentialsId, variable: 'KUBECONFIG')]) {
-            sh "helm upgrade helm-${k8sNamespace} --namespace ${k8sNamespace} --install ${pipelineConfig.helmChartDir} --atomic --force --values ${pipelineConfig.helmChartDir}/${k8sNamespace}_values.yaml"
+            sh "helm upgrade helm-mva-${k8sNamespace} --namespace ${k8sNamespace} --install ${pipelineConfig.helmChartDir} --atomic --force --values ${pipelineConfig.helmChartDir}/${k8sNamespace}_values.yaml"
           }
         }
       }
