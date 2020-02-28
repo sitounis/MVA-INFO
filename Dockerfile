@@ -21,5 +21,5 @@ RUN ["/bin/bash", \
 ARG SASS_PATH='./node_modules'
 WORKDIR '/app'
 
-COPY .dist /usr/share/nginx/html/
+COPY dist /usr/share/nginx/html/
 COPY nginx/default.conf /etc/nginx/conf.d/.
