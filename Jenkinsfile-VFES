@@ -53,11 +53,11 @@ _auth=${env.NPM_AUTH}
   
   //Build the docker image
   try {
-    sh "npm i"
-    sh "export NG_CLI_ANALYTICS=ci"
-    sh "npm install -g @angular/cli"
-    sh "rm -r node_modules/@angular/cli/node_modules/webpack"
-    sh "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --env=uat --aot --sourcemap=false"
+    //sh "npm i"
+    //sh "export NG_CLI_ANALYTICS=ci"
+    //sh "npm install -g @angular/cli"
+   //sh "rm -r node_modules/@angular/cli/node_modules/webpack"
+    //sh "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --env=uat --aot --sourcemap=false"
     sh "docker build -t ${projectAttributes.dockerImage} ."
   } finally {
     //Do some cleanup
