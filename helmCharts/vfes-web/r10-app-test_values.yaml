@@ -7,4 +7,4 @@ vfesweb:
 
   # env: {}
   # deploymentEnvFrom: {}
-  ingressHostName: mva-es-demo
+  ingressHostName: Retail10-Atomic-Components-Storybook
