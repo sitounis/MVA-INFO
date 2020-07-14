@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Icons+Indicators / System-Icons / 00 placeholder / #E60000</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons+Indicators-/-System-Icons-/-00-placeholder-/-#E60000" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="placeholder">
+            <circle id="Oval" stroke="#E60000" stroke-linecap="round" cx="12" cy="12" r="9.5"></circle>
+            <rect id="Rectangle" stroke="#E60000" stroke-linecap="round" stroke-linejoin="round" x="4.005" y="4.005" width="15.98875" height="15.98875"></rect>
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            <line x1="18.67875" y1="5.32125" x2="5.2825" y2="18.7175" id="Path" stroke="#E60000" stroke-linecap="round" stroke-linejoin="round"></line>
+            <line x1="5.32125" y1="5.32125" x2="18.7175" y2="18.7175" id="Path" stroke="#E60000" stroke-linecap="round" stroke-linejoin="round"></line>
+            <line x1="4" y1="12" x2="19.995" y2="12" id="Path" stroke="#E60000" stroke-linecap="round" stroke-linejoin="round"></line>
+            <line x1="12" y1="4" x2="12" y2="19.995" id="Path" stroke="#E60000" stroke-linecap="round" stroke-linejoin="round"></line>
+        </g>
+    </g>
+</svg>

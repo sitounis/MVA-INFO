@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/main.3f1fb6995880959a2051.bundle.js",
+    "main.js.map": "/main.3f1fb6995880959a2051.bundle.js.map",
+    "runtime~main.js": "/runtime~main.3f1fb6995880959a2051.bundle.js",
+    "runtime~main.js.map": "/runtime~main.3f1fb6995880959a2051.bundle.js.map",
+    "vendors~main.js": "/vendors~main.3f1fb6995880959a2051.bundle.js",
+    "vendors~main.js.map": "/vendors~main.3f1fb6995880959a2051.bundle.js.map",
+    "iframe.html": "/iframe.html",
+    "precache-manifest.f4d5e8f463f4ff37bd09d2c61c6ae208.js": "/precache-manifest.f4d5e8f463f4ff37bd09d2c61c6ae208.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/1588010406501.png": "/static/media/1588010406501.3caed241.png",
+    "static/media/ic-chevron-down.a575e15a.svg": "/static/media/ic-chevron-down.a575e15a.svg",
+    "static/media/ic-placeholder.7cb42ea7.svg": "/static/media/ic-placeholder.7cb42ea7.svg",
+    "static/media/ic-search.3b7f6862.svg": "/static/media/ic-search.3b7f6862.svg",
+    "static/media/ic-star-outlined.96524696.svg": "/static/media/ic-star-outlined.96524696.svg",
+    "static/media/ic-star.795aa2c8.svg": "/static/media/ic-star.795aa2c8.svg",
+    "static/media/vodafone-bold.woff": "/static/media/vodafone-bold.e470bb51.woff",
+    "static/media/vodafone-light.woff": "/static/media/vodafone-light.a71ea068.woff",
+    "static/media/vodafone-regular.woff": "/static/media/vodafone-regular.bd9e4acf.woff",
+    "vendors~main.3f1fb6995880959a2051.bundle.js.LICENSE.txt": "/vendors~main.3f1fb6995880959a2051.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.3f1fb6995880959a2051.bundle.js",
+    "vendors~main.3f1fb6995880959a2051.bundle.js",
+    "main.3f1fb6995880959a2051.bundle.js"
+  ]
+}
