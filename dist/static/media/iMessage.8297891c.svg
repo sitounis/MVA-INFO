@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>9AD6C7D6-D431-471C-A124-A50BAEEB0C18</title>
+    <defs>
+        <linearGradient x1="50.7936478%" y1="93.361933%" x2="50.7936478%" y2="12.4104664%" id="linearGradient-1">
+            <stop stop-color="#0CBD2A" offset="0%"></stop>
+            <stop stop-color="#5BF675" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3rd-party-icons" transform="translate(-79.000000, -335.000000)" fill-rule="nonzero">
+            <g id="Icons+Indicators-/-3rd-Party-Icons-/-iMessage-/-App-Launcher" transform="translate(79.000000, 335.000000)">
+                <g id="IMessage_logo" transform="translate(0.000000, 0.888889)">
+                    <rect id="rect826" fill="url(#linearGradient-1)" x="0" y="0" width="32" height="32" rx="7.82749182"></rect>
+                    <path d="M15.5955128,6 C9.1915037,6 4,10.3241778 4,15.6582782 C4.00570049,19.0472987 6.14354914,22.1858822 9.63325612,23.9284824 C9.17631499,24.9514556 8.49100043,25.9107305 7.60568931,26.7665863 C9.32251879,26.4652051 10.9341423,25.8320756 12.3151245,24.9164752 C13.3799353,25.1800241 14.4846873,25.314763 15.5955128,25.3165612 C21.9995244,25.316519 27.1910261,20.9923806 27.1910261,15.6582782 C27.1910261,10.3241777 21.9995221,6 15.5955128,6 L15.5955128,6 Z" id="path922" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

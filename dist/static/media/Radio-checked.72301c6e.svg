@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F00FAA52-646C-4033-B5F5-F322426A6095</title>
+    <defs>
+        <circle id="path-1" cx="10" cy="10" r="10"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Controls-/-Radio-Button" transform="translate(-174.000000, -119.000000)">
+            <g id="Controls-/-Radio-/-Light-bkgd-/-Active" transform="translate(174.000000, 119.000000)">
+                <g id="Content" transform="translate(2.000000, 2.000000)">
+                    <g id="Oval-2" stroke-linejoin="square">
+                        <circle stroke="#007C92" fill="#FFFFFF" fill-rule="evenodd" cx="10" cy="10" r="9.5"></circle>
+                        <circle stroke-opacity="0.2" stroke="#000000" cx="10" cy="10" r="9.5"></circle>
+                    </g>
+                    <circle id="Oval-2" fill="#007C92" cx="10" cy="10" r="6"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

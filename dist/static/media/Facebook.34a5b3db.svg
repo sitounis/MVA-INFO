@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>7F032A5C-58A1-459B-B527-1B6F846B3C52</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3rd-party-icons" transform="translate(-79.000000, -212.000000)">
+            <g id="Icons+Indicators-/-3rd-Party-Icons-/-Facebook-/-App-Launcher" transform="translate(79.000000, 212.000000)">
+                <g id="Logo">
+                    <rect id="Rectangle" fill="#3B5998" x="0" y="0" width="32" height="32" rx="8"></rect>
+                    <g id="Facebook" fill-rule="nonzero">
+                        <path d="M0,16 C0,7.16344357 7.16344357,0 16,0 C24.8365564,0 32,7.16344357 32,16 C32,24.8365564 24.8365564,32 16,32 C7.16344357,32 0,24.8365564 0,16 Z" id="back" fill="#3B5998"></path>
+                        <path d="M18.0573509,26.6666667 L18.0573509,15.998751 L20.9499955,15.998751 L21.3333333,12.3225282 L18.0573509,12.3225282 L18.0622654,10.4825433 C18.0622654,9.52372777 18.1517519,9.0099725 19.5044922,9.0099725 L21.3128559,9.0099725 L21.3128559,5.33333333 L18.4198017,5.33333333 C14.9447784,5.33333333 13.7216603,7.11669691 13.7216603,10.1157537 L13.7216603,12.3229445 L11.5555556,12.3229445 L11.5555556,15.9991673 L13.7216603,15.9991673 L13.7216603,26.6666667 L18.0573509,26.6666667 Z" id="Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
